@@ -1,6 +1,8 @@
 # EmailReply - Générateur de réponses emails avec Claude
 
-Application web simple qui génère des réponses intelligentes à vos emails en utilisant l'API Claude d'Anthropic.
+Application web moderne qui génère des réponses intelligentes à vos emails en utilisant l'API Claude d'Anthropic.
+
+🚀 **[Demo en ligne](https://emailreply.vercel.app)**
 
 ## Fonctionnalités
 
