@@ -1,0 +1,55 @@
+Voici des exemples d'emails que vous pouvez utiliser pour tester EmailReply :
+
+================================================================================
+EXEMPLE 1 - Email professionnel
+================================================================================
+
+Bonjour,
+
+Je vous contacte concernant la proposition commerciale que vous nous avez envoyée
+la semaine dernière. Nous avons examiné les tarifs et les conditions, et nous
+souhaitons obtenir quelques clarifications avant de prendre notre décision.
+
+Pourriez-vous nous préciser :
+- Les délais de livraison exacts
+- Les modalités de paiement disponibles
+- Les conditions de garantie
+
+Nous aimerions finaliser cet accord rapidement.
+
+Cordialement,
+Jean Dupont
+
+================================================================================
+EXEMPLE 2 - Email amical
+================================================================================
+
+Salut !
+
+Ça fait longtemps qu'on s'est pas vus ! Je me demandais si tu serais dispo
+samedi prochain pour qu'on se fasse un brunch ? Il y a un nouveau resto qui
+a ouvert près de chez moi et j'ai entendu dire que c'était vraiment top.
+
+Tu me dis si ça te tente ?
+
+À bientôt !
+Marie
+
+================================================================================
+EXEMPLE 3 - Email demande d'information
+================================================================================
+
+Bonjour,
+
+Je suis intéressé par vos formations en développement web. Pourriez-vous
+m'envoyer plus d'informations sur les prochaines sessions disponibles ainsi
+que les tarifs ?
+
+Merci d'avance.
+
+Pierre Martin
+
+================================================================================
+
+Testez chaque exemple avec les différents tons (Formel, Amical, Bref) pour
+voir comment Claude adapte les réponses !

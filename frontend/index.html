@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailReply - AI Email Response Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-blur bg-blur-1"></div>
+    <div class="bg-blur bg-blur-2"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span>Powered by Claude Sonnet 4.5</span>
+            </div>
+            <h1 class="hero-title">
+                Répondez à vos emails<br>
+                <span class="gradient-text">en un clic</span>
+            </h1>
+            <p class="hero-subtitle">
+                Collez votre email, choisissez le ton, et laissez l'IA générer<br>une réponse parfaite en quelques secondes
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">3 sec</div>
+                    <div class="stat-label">Temps moyen</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">3 tons</div>
+                    <div class="stat-label">Au choix</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Gratuit</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Input Card -->
+            <div class="card input-card">
+                <div class="step-indicator">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Collez l'email reçu</span>
+                </div>
+
+                <div class="textarea-wrapper">
+                    <textarea
+                        id="emailContent"
+                        class="input-textarea"
+                        placeholder="Bonjour,&#10;&#10;Je vous contacte concernant votre proposition commerciale...&#10;&#10;Collez ici l'email auquel vous souhaitez répondre"
+                        rows="10"
+                    ></textarea>
+                    <div class="textarea-footer">
+                        <div class="char-count">
+                            <span id="charCount">0</span> caractères
+                        </div>
+                        <div class="hint-text">
+                            <kbd>Ctrl</kbd> + <kbd>V</kbd> pour coller
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tone Selector -->
+                <div class="tone-section">
+                    <div class="step-indicator">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Sélectionnez le ton de votre réponse</span>
+                    </div>
+                    <div class="tone-grid">
+                        <button class="tone-card active" data-tone="formel">
+                            <div class="tone-check">✓</div>
+                            <div class="tone-icon">👔</div>
+                            <div class="tone-content">
+                                <div class="tone-title">Formel</div>
+                                <div class="tone-desc">Pour vos emails professionnels</div>
+                            </div>
+                        </button>
+                        <button class="tone-card" data-tone="amical">
+                            <div class="tone-check">✓</div>
+                            <div class="tone-icon">🤝</div>
+                            <div class="tone-content">
+                                <div class="tone-title">Amical</div>
+                                <div class="tone-desc">Pour un ton chaleureux et décontracté</div>
+                            </div>
+                        </button>
+                        <button class="tone-card" data-tone="bref">
+                            <div class="tone-check">✓</div>
+                            <div class="tone-icon">⚡</div>
+                            <div class="tone-content">
+                                <div class="tone-title">Bref</div>
+                                <div class="tone-desc">Pour aller droit au but</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <div class="step-indicator">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Générez votre réponse</span>
+                </div>
+                <button id="generateBtn" class="generate-btn">
+                    <span class="btn-content">
+                        <svg class="btn-icon-left" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2L15 7M10 2L5 7M10 2V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 15L3 16C3 17.1046 3.89543 18 5 18L15 18C16.1046 18 17 17.1046 17 16V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span class="btn-text">Générer avec Claude AI</span>
+                        <svg class="btn-icon-right" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="button-hint">
+                    Ou appuyez sur <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading-card" style="display: none;">
+                <div class="loading-content">
+                    <div class="spinner-modern">
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                    </div>
+                    <p class="loading-text">Claude analyse votre email...</p>
+                    <div class="loading-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output Card -->
+            <div class="card output-card" id="outputSection" style="display: none;">
+                <div class="success-badge">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Réponse générée avec succès</span>
+                </div>
+
+                <div class="textarea-wrapper">
+                    <textarea
+                        id="generatedReply"
+                        class="output-textarea"
+                        rows="12"
+                        readonly
+                    ></textarea>
+                    <div class="textarea-footer">
+                        <div class="char-count">
+                            <span id="replyCharCount">0</span> caractères
+                        </div>
+                        <button id="copyBtn" class="copy-btn">
+                            <svg class="copy-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <rect x="5" y="5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M3 10.5V3C3 2.44772 3.44772 2 4 2H10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span class="copy-text">Copier la réponse</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="error" class="error-card" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <div class="error-content">
+                    <div class="error-title">Oops!</div>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Made with Claude Code</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
